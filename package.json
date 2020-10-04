@@ -1,0 +1,24 @@
+{
+  "name": "caesar_cipher",
+  "version": "1.0.0",
+  "description": "Task 1. Caesar Cipher task. RSS NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrublik93/caesar-cipher-cli-tool.git"
+  },
+  "keywords": [
+    "node",
+    "rss",
+    "caesar_cipher"
+  ],
+  "author": "Ivan Vrubleuski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wrublik93/caesar-cipher-cli-tool/issues"
+  },
+  "homepage": "https://github.com/wrublik93/caesar-cipher-cli-tool#readme"
+}

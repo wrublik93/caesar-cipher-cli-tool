@@ -1,3 +1,5 @@
+const checkExistFile = require('./checkExistFile');
+
 function validate(shift, input, output, action, terminator) {
   let error = false;
 
@@ -11,9 +13,19 @@ function validate(shift, input, output, action, terminator) {
     error = true;
   }
 
+  if (input && !checkExistFile(input, 'input')) {
+    error = true;
+  }
+
+  if (output && !checkExistFile(output, 'output')) {
+    error = true;
+  }
+
   if (error) {
     terminator();
   }
+
+
 }
 
 module.exports = validate;

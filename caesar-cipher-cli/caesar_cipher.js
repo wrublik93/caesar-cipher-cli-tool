@@ -6,10 +6,10 @@ const Transformer = require('./src/transformer');
 
 program
   .storeOptionsAsProperties(false)
-  .option('-s --shift <shift>', 'option: shift')
-  .option('-i --input <file>', 'option: input file')
-  .option('-o --output <file>', 'option: output file')
-  .option('-a --action <action>', 'option: action encode/decode')
+  .option('-s --shift <shift>', 'option (required): shift (only integer shift value)')
+  .option('-i --input <file>', 'option (not required): input file (if none - STDIN)')
+  .option('-o --output <file>', 'option (not required): output file (if none - STDOUT)')
+  .option('-a --action <action>', 'option (required): action ONLY encode/decode')
   .parse(process.argv)
 
 const { shift, input, output, action } = program.opts();

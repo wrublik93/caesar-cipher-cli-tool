@@ -1,58 +1,53 @@
-## Task 1. Caesar cipher CLI tool
+# Task 1. Caesar cipher CLI tool
 
-**Implement CLI tool that will encode and decode a text by [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher)**.
+**Implement CLI tool that will encode and decode a text by [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher)**.  
+**Task link: [Task 1. Caesar cipher CLI tool](https://github.com/rolling-scopes-school/nodejs-course-template/blob/master/TASKS.md#task-1-caesar-cipher-cli-tool)**.
 
-CLI tool should accept 4 options (short alias and full name):
+## How to start?
+1. Clone or download this repository
+2. Open application folder
+3. Run `npm install` or `npm i` to download packages
+4. Your application ready to work
 
-1.  **-s, --shift**: a shift
-2.  **-i, --input**: an input file
-3.  **-o, --output**: an output file
-4.  **-a, --action**: an action encode/decode
+## How usage?
+1. Open application folder
+2. Write the command `node caesar-cipher-cli/caesar_cipher [options]` or `node caesar-cipher-cli/caesar_cipher.js [options]`, where `[options]`:  
 
-**Details:**
+| Option \(short\) | Option \(full\) | Description                              | Required |
+|------------------|-----------------|------------------------------------------|----------|
+| \-s              | \-\-short       | only integer shift value                 | yes      |
+| \-i              | \-\-input       | input file option \(if none \- STDIN\)   | no       |
+| \-o              | \-\-output      | output file option \(if none \- STDOUT\) | no       |
+| \-a              | \-\-action      | actions: encode / decode                 | yes      |
+| \-h              | \-\-help        | display help                             | no       |  
 
-1. For command-line arguments could be used one of
+## Examples  
+If you use default input and output files and you stay in the root folder application:  
+1. `node caesar-cipher-cli/caesar_cipher.js -s 1 -a encode` or `node caesar-cipher-cli/caesar_cipher.js --shift 1 --action encode` - encode (used stdin and stdout)
+2. `node caesar-cipher-cli/caesar_cipher -s 1 -a encode` or `node caesar-cipher-cli/caesar_cipher --shift 1 --action encode` - encode (used stdin and stdout)  
+3. `node caesar-cipher-cli/caesar_cipher.js -s 1 -a decode` or `node caesar-cipher-cli/caesar_cipher.js --shift 1 --action decode` - decode (used stdin and stdout) 
+4. `node caesar-cipher-cli/caesar_cipher -s 1 -a decode` or `node caesar-cipher-cli/caesar_cipher --shift 1 --action decode` - decode (used stdin and stdout)  
+5. `node caesar-cipher-cli/caesar_cipher.js -s 1 -a encode -i "./caesar-cipher-cli/input.txt"` or `node caesar-cipher-cli/caesar_cipher.js --shift 1 --action encode --input "./caesar-cipher-cli/input.txt"` - encode (used input.txt and stdout)  
+6. `node caesar-cipher-cli/caesar_cipher -s 1 -a encode -i "./caesar-cipher-cli/input.txt"` or `node caesar-cipher-cli/caesar_cipher --shift 1 --action encode --input "./caesar-cipher-cli/input.txt"` - encode (used input.txt and stdout)  
+7. `node caesar-cipher-cli/caesar_cipher.js -s 1 -a decode --input "./caesar-cipher-cli/input.txt"` or `node caesar-cipher-cli/caesar_cipher.js --shift 1 --action decode --input "./caesar-cipher-cli/input.txt"` - decode (used input.txt and stdout)  
+8. `node caesar-cipher-cli/caesar_cipher -s 1 -a decode --input "./caesar-cipher-cli/input.txt"` or `node caesar-cipher-cli/caesar_cipher --shift 1 --action decode --input "./caesar-cipher-cli/input.txt"` - decode (used input.txt and stdout)  
+9. `node caesar-cipher-cli/caesar_cipher.js -s 1 -a encode -i "./caesar-cipher-cli/input.txt" -o "./caesar-cipher-cli/output.txt"` or `node caesar-cipher-cli/caesar_cipher.js --shift 1 --action encode --input "./caesar-cipher-cli/input.txt" --output "./caesar-cipher-cli/output.txt"` - encode (used input.txt and output.txt)  
+10. `node caesar-cipher-cli/caesar_cipher -s 1 -a encode -i "./caesar-cipher-cli/input.txt" -o "./caesar-cipher-cli/output.txt"` or `node caesar-cipher-cli/caesar_cipher --shift 1 --action encode --input "./caesar-cipher-cli/input.txt" --output "./caesar-cipher-cli/output.txt"` - encode (used input.txt and output.txt)  
+11. `node caesar-cipher-cli/caesar_cipher.js -s 1 -a decode -i "./caesar-cipher-cli/input.txt" -o "./caesar-cipher-cli/output.txt"` or `node caesar-cipher-cli/caesar_cipher.js --shift 1 --action decode --input "./caesar-cipher-cli/input.txt" --output "./caesar-cipher-cli/output.txt"` - decode (used input.txt and output.txt)  
+12. `node caesar-cipher-cli/caesar_cipher -s 1 -a decode -i "./caesar-cipher-cli/input.txt" -o "./caesar-cipher-cli/output.txt"` or `node caesar-cipher-cli/caesar_cipher --shift 1 --action decode --input "./caesar-cipher-cli/input.txt" --output "./caesar-cipher-cli/output.txt"` - decode (used input.txt and output.txt)  
 
-- [https://www.npmjs.com/package/commander](https://www.npmjs.com/package/commander)
-- [https://www.npmjs.com/package/minimist](https://www.npmjs.com/package/minimist)
-  or any other module.
+## Cross-check  
+Каждый пункт **10 баллов**, частичная реализация пункта **5 баллов**.  
+Каждый коммит после дедлайна (за исключением коммитов в README.md) **минус 10 баллов**  
 
-2. Action (encode/decode) and the shift are required, if one of them missed - an error should be shown, the process should exit with non-zero status code.
-3. If the input file is missed - use stdin as an input source.
-4. If the output file is missed - use stdout as an output destination.
-5. If the input and/or output file is given but doesn't exist or you can't read it (e.g. because of permissions or it is a directory) - human-friendly error should be printed in stderr.
-6. If passed params are fine the output (file or stdout) should contain encoded/decoded content of input (file or stdin).
-7. For encoding/decoding use only the English alphabet, all other characters should be kept untouched.
+- [x] в корне репозитория создана папка с произвольным названием (например caesar-cipher-cli, task1 и т.п.), в которой расположены файлы с кодом программы  
+- [x] в README.md должно быть описано, как можно запустить программу из командной строки, описаны аргументы, которые можно передать приложению
+3. если переданы все аргументы, приложение читает из файла и записывает в файл зашифрованный/расшифрованный текст, при этом предыдущие записи не удаляются
+4. если не переданы обязательные аргументы, приложение передает соответствующее сообщение в process.stderr и прoцесс завершается с кодом, отличным от 0
+5. если переданы аргументы с путями к файлам, но файлы отсутствуют (или к ним невозможен доступ), приложение передает соответствующее сообщение в process.stderr и прoцесс завершается с кодом, отличным от 0
+6. если не передан аргумент с путем до файла на чтение, то чтение осуществляется из process.stdin
+7. если не передан аргумент с путем до файла на запись, то вывод осуществляется в process.stdout
+8. шифруются/дешифруются только латинские буквы, регистр сохраняется, остальные символы не изменяются
+9. если текст вводится из консоли, то программа не должна завершаться после выполнения шифровки/дешифровки введенного текста, т.е. должна быть возможность ввести еще текст
+10. кодовая база не находится в одном файле, а разделена на файлы в соответствии с выполняемыми задачами (например - функция, преобразующая строку, в отдельном файле, код, создающий transform стрим, в отдельном файле, функция для парсинга и валидации аргументов в отдельном файле и т.п.)
 
-**Hints:**
-As suggested solution to make streams code more robust, and memory effective, consider to use [pipeline method](https://nodejs.org/api/stream.html#stream_stream_pipeline_streams_callback).
-Structure can be the following:
-
-```javascript
-pipeline(
-  input_stream, // input file stream or stdin stream
-  transform_stream, // standard Transform stream or https://github.com/rvagg/through2
-  output_stream // output file stream or stdout stream
-)
-.then(success and error callbacks)
-```
-
-**Usage example:**
-
-```bash
-$ node my_caesar_cli -a encode -s 7 -i "./input.txt" -o "./output.txt"
-```
-
-```bash
-$ node my_caesar_cli --action encode --shift 7 --input plain.txt --output encoded.txt
-```
-
-```bash
-$ node my_caesar_cli --action decode --shift 7 --input decoded.txt --output plain.txt
-```
-
-> input.txt
-> `This is secret. Message about "_" symbol!`
-
-> output.txt
-> `Aopz pz zljyla. Tlzzhnl hivba "_" zftivs!`

@@ -1,31 +1,12 @@
-const checkExistFile = require('./checkExistFile');
+const validateShift = require('./validation/validateShift');
+const validateFile = require('./validation/validateFile');
+const validateAction = require('./validation/validateAction');
 
 function validate(shift, input, output, action, terminator) {
   let error = false;
-
-  if (shift === undefined) {
-    console.error('Oops... Option "shift" is required option! Please, try again!');
-    error = true;
-  }
-
-  if (!Number.isInteger(+shift)) {
-    console.error('Oops... Option "shift" must be integer! Please, try again!');
-    error = true;
-  }
-
-  if (input && !checkExistFile(input, 'input')) {
-    error = true;
-  }
-
-  if (output && !checkExistFile(output, 'output')) {
-    error = true;
-  }
-
-  if (error) {
-    terminator();
-  }
-
-
+  validateShift(shift, error, terminator);
+  validateFile(input, output, error, terminator);
+  validateAction(action, error, terminator);
 }
 
 module.exports = validate;

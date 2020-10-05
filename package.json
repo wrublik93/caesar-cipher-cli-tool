@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/wrublik93/caesar-cipher-cli-tool/issues"
   },
-  "homepage": "https://github.com/wrublik93/caesar-cipher-cli-tool#readme"
+  "homepage": "https://github.com/wrublik93/caesar-cipher-cli-tool#readme",
+  "dependencies": {
+    "commander": "^6.1.0"
+  }
 }

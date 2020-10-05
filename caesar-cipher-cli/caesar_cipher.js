@@ -17,11 +17,11 @@ validate(shift, input, output, action, () => process.exit(1));
 
 pipeline(
   input ? fs.createReadStream(input) : process.stdin,
-  output ? fs.createWriteStream(output, { flags: 'a' }) : process.stdout,
   new Transformer(action, shift),
+  output ? fs.createWriteStream(output, { flags: 'a' }) : process.stdout,
   (error) => {
     if (error) {
-      console.error('Error pipeline!', error);
+      console.error('Oops... Pipeline :)', error);
       process.exit(1);
     }
   }
